@@ -12,7 +12,7 @@ jobs:
 
     - name: Set Gems
       run: |
-        gem install b# undler
+        gem install bundler
         bundle install
 
     - name: Set Xcode version
