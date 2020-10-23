@@ -50,6 +50,7 @@ jobs:
 
     - name: Set Gems
       run: |
+        ls
         gem install bundler
         bundle install
 
