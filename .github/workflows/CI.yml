@@ -32,7 +32,7 @@ jobs:
     - name: Archive derived data artifacts
       uses: actions/upload-artifact@v2
       with:
-        name: derived-data
+        name: build
         path: build
 
   test:
@@ -46,7 +46,7 @@ jobs:
     - name: Download derived data artifact
       uses: actions/download-artifact@v2
       with:
-        name: derived-data
+        name: build
 
     - name: Set Gems
       run: |
