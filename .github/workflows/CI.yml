@@ -29,6 +29,12 @@ jobs:
         -derivedDataPath build \
         | xcpretty
 
+    - name: Archive derived data artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: build
+        path: build
+
   test:
     name: Test Project
     needs: build
@@ -46,6 +52,11 @@ jobs:
       uses: maxim-lobanov/setup-xcode@v1.1
       with:
         xcode-version: 12.1
+
+    - name: Download derived data artifact
+      uses: actions/download-artifact@v1
+      with:
+        name: build
 
     - name: Test
       run: |
