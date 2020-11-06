@@ -23,9 +23,10 @@ jobs:
     - name: Build
       run: |
         set -o pipefail
-        xcodebuild build \
+        xcodebuild build-for-testing \
         -scheme iOSGitHubActions \
         -destination 'platform=iOS Simulator,name=iPhone 11 Pro' \
+        -derivedDataPath build \
         | xcpretty
 
   test:
@@ -49,7 +50,8 @@ jobs:
     - name: Test
       run: |
         set -o pipefail
-        xcodebuild test \
+        xcodebuild test-without-building \
         -scheme iOSGitHubActions \
         -destination 'platform=iOS Simulator,name=iPhone 11 Pro' \
+        -derivedDataPath build \
         | xcpretty
